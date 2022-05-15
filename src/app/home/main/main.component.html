@@ -1,0 +1,24 @@
+  <div class="container wh-100" id="main_div" #main_div>
+    <div class="row" style="height: 100vh !important;">
+      <div class="col-2">
+      </div>
+      <div class="col-8 text-center my-auto">
+        <button class="mat-button mat-raised-button mat-button-warning animate__animated" style="width: 30vh; height: 10vh;" (click)="clicked(main_canvas);funny.play()" [ngClass]="{'animate__zoomOut': button_clicked, 'animate__fadeInDown': !button_clicked}">HAGA CLICK PARA SU REGALO</button>
+        <div *ngIf="clicked" style="display:block">
+          <p class="animate__animated" [ngClass]="{'animate__zoomIn': after_clicked, 'animate__zoomOut': !after_clicked}" [ngStyle]="{'display': after_clicked? 'block': 'none'}" style="color: #fff; font-size: 2em;">{{gen_insult}}</p>
+        </div>
+        <div class="animate__animated text-center" *ngIf="show_reset_button" [ngClass]="{'animate__fadeIn': show_reset_button}" style="z-index: 3;">
+          <button mat-fab color="primary" (click)="reset()" style="margin-top:20vh; position: absolute;">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+
+  <audio #funny src="../../../assets/partyblower.mp3" style="display: none" [autoplay] = "false"></audio>
+
+  <canvas #main_canvas>
+
+  </canvas>
